@@ -8,7 +8,7 @@ const config: Config = {
     [
       { text: "Posts", href: "/posts" },
       { text: "Frontend", href: "/posts?category=frontend" },
-      { text: "Random Stuffs", href: "/posts?category=random-stuffs" },
+      { text: "Notes", href: "/posts?tags=notes" },
     ],
     { text: "About", href: "/about" },
   ],
