@@ -29,7 +29,7 @@ may assume different values
 
 ### Elements
 
-an element is a unit of data, which is represented as a a set of attributes or measurements  —— entities on which data are collected
+an element is a unit of data, which is represented as a set of attributes or measurements  —— entities on which data are collected
 
 **Observation** - set of values for the variables for an element set of measurements for a single data entity
 
@@ -168,7 +168,7 @@ $$
 - When a distribution is positively skewed, the skewness is positive.
 - When a distribution is negatively skewed, the skewness is negative.
 - When a distribution symmetric, the skewness is 0.
-- When you have 2 or more distributions and you want to compare skewness, you use skewness ratio.
+- When you have 2 or more distributions, and you want to compare skewness, you use skewness ratio.
 - By convention when the skewness ratio exceed 2 we consider the distribution highly skewed.
 
 ## Transformations
@@ -271,7 +271,7 @@ $$
 deviation also called residual
 
 $$
-\hat y = ax+b \ \ \textrm{where} \ \ a=r\frac{s_y}{s_x} \ \textrm{and} \ b=\bar y - a \bar x
+\hat y = a + bx \ \ \textrm{where} \ \ b=r\frac{s_y}{s_x} \ \textrm{and} \ a=\bar y - b \bar x
 $$
 
 ### $r^2$ Interpretation
@@ -395,7 +395,7 @@ Given a population of values with no specify distribution and a sample size of $
 
 1. Its shape is approximately normal
 2. Its mean $\mu_{\bar x}=\mu$
-3. Its standard deviation $\ \sigma_{\bar x}=\dfrac{\sigma}{\sqrt{N}} \$ , also called the standard error
+3. Its standard deviation $ \sigma_{\bar x}=\dfrac{\sigma}{\sqrt{N}} $ , also called the standard error
 
 Large Sample Condition:
 
@@ -416,12 +416,12 @@ $$
 
 Choose a simple random sample of size $n$ from a population of size $N$, with a proportion of $p$ successes. Then:
 
-- the mean of the sampling distribution is equal to $p$, aka. $\mu_{\hat p}=p$
-
-- standard deviation of the sampling distribution of $\hat p$, aka. $\sigma_{\hat p}=\sqrt{\dfrac{p(1-p)}{n}} $  as long as $ n \leq \dfrac{1}{10} N$
-
+- the mean of the sampling distribution is equal to $p$
+    $\mu_{\hat p}=p$
+- standard deviation of the sampling distribution of $\hat p$
+    $\sigma_{\hat p}=\sqrt{\dfrac{p(1-p)}{n}}$  as long as $n \leq \dfrac{1}{10} N$
 - as $n$ increases the sampling distribution approaches normal as long as
-$np \geq 10 \ \text{and} \ n(1-p) \geq 10$
+    $np \geq 10 \ \text{and} \ n(1-p) \geq 10$
 
 ### Sampling Distribution of $\bar x$
 
@@ -453,12 +453,12 @@ $$
 \text{Standard Error}=\frac{\sigma}{\sqrt{n}}
 $$
 
-|  | proportion | mean |
-| --- | --- | --- |
-| **population** |  |  |
-| parameter | $p$ | $\mu$ |
-| **sample** |  |  |
-| statistic | $\hat p$ | $\bar x$ |
+|                    | proportion                                                           | mean                                                                    |
+|--------------------|----------------------------------------------------------------------|-------------------------------------------------------------------------|
+| **population**     |                                                                      |                                                                         |
+| parameter          | $p$                                                                  | $\mu$                                                                   |
+| **sample**         |                                                                      |                                                                         |
+| statistic          | $\hat p$                                                             | $\bar x$                                                                |
 | standard deviation | $\sqrt{\dfrac{p(1-p)}{n}}\approx \sqrt{\dfrac{\hat p(1-\hat p)}{n}}$ | $\sigma_{\bar x}=\dfrac{\sigma}{\sqrt{n}}\approx \dfrac{s_x}{\sqrt{n}}$ |
 
 ### Confidence Level
@@ -510,17 +510,14 @@ Parameter of interest $p$ is the true proportion of successes
 Statistical test weigh evidence against a claim and an alternate claim
 
 - Step 1: state hypothesis, hypothesis should express suspicions we have before we see the data
-    - one sided $>$ or $<$
-    - two sided $\neq$
-
+    - one-sided $>$ or $<$
+    - two-sided $\neq$
     $$
     \mathcal{H}_0: p = \text{value} \ \ \text{or} \ \ \mathcal{H}_a:p < (> \text{or} \neq) \ \text{value}
     $$
-
     $$
     \mathcal{H}_0: \mu = \text{value} \ \ \text{or} \ \ \mathcal{H}_a:\mu < (> \text{or} \neq) \ \text{value}
     $$
-
 - Step 2: Does the data give convincing evidence against the null?
     - Reject the null
     - Fail to reject the null
@@ -535,10 +532,10 @@ If the p-value is smaller than $\alpha$ we say result are statistically signific
 
 Levels of $\alpha$: $0.01,0.05, 0.1$
 
-|  | $\mathcal{H}_0$ true | $\mathcal{H}_0$ false |
-| --- | --- | --- |
-| reject $\mathcal{H}_0$ | Type $\text{I}$ error $=\alpha$ | 😀 |
-| fail to reject $\mathcal{H}_0$ | 😀 | Type $\text{II}$ error $= 1-\beta$ |
+|                                | $\mathcal{H}_0$ true            | $\mathcal{H}_0$ false              |
+|--------------------------------|---------------------------------|------------------------------------|
+| reject $\mathcal{H}_0$         | Type $\text{I}$ error $=\alpha$ | 😀                                 |
+| fail to reject $\mathcal{H}_0$ | 😀                              | Type $\text{II}$ error $= 1-\beta$ |
 
 ### Test about a population proportion (1-prop z-test)
 
@@ -548,7 +545,7 @@ Levels of $\alpha$: $0.01,0.05, 0.1$
     - independence - if not replacing $n\leq \frac{1}{10}N$
     - normal - $np \geq 10 \ \text{and} \ n(1-p) \geq 10$
 3. perform the test
-    - test statistic:$normalcdf(\text{z-score},\text{upper/lower bound}, mean, \text{standard deviation})$
+    - test statistic: $\text{normalcdf}(\text{z-score},\text{upper/lower bound}, mean, \text{standard deviation})$
     - p-value
 4. conclude
     - compare p-value to $\alpha$
@@ -564,11 +561,9 @@ Levels of $\alpha$: $0.01,0.05, 0.1$
 3. Hypothesis: $\mathcal{H}_0 \ \text{and} \ \mathcal{H}_a$
 4. perform the test
     - test statistic:
-
     $$
     \frac{\text{stats} - \text{parameter}}{\text{standard error}}=\frac{\bar x - \mu_0}{s_x / \sqrt{n}}=t
     $$
-
 5. Conclusion
 
 ### Power
@@ -604,12 +599,12 @@ $$
 
 possible values: $-\pi \ \text{and} \ \pi$
 
-## Sampling Distribution of difference of two groups
+### Comparing 2 means
 
-| Population of treatment | Parameter | statistic | sample size |
-| --- | --- | --- | --- |
-| 1 | $\mu_1$ | $\bar x_1$ | $n_1$ |
-| 2 | $\mu_2$ | $\bar x_2$ | $n_2$ |
+| Population of treatment | Parameter | statistic  | sample size |
+|-------------------------|-----------|------------|-------------|
+| 1                       | $\mu_1$   | $\bar x_1$ | $n_1$       |
+| 2                       | $\mu_2$   | $\bar x_2$ | $n_2$       |
 
 Sampling distribution of $\bar x_1 - \bar x_2$
 
@@ -623,13 +618,227 @@ $$
 t_{stats} = \frac{(\bar x_1 - \bar x_2) - (\mu_1-\mu_2)}{\sqrt{s_1^2 / n_1 + s_2^2 / n_2}}
 $$
 
-### Confidence Interval
+**Confidence Interval**
 
 $$
 \text{confidence interval} = (\bar x_1 - \bar x_2) \pm t^* \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 $$
 
-### 2 samples t-test
+**2 samples t-test**
 
 - $\mathcal{H}_0: \mu_1 - \mu_2 = 0 \ \ \text{or} \ \ \mu_1=\mu_2$
 - $\mathcal{H}_a: \mu_1 - \mu_2 > (< \text{or} \neq) \ 0 \ \ \text{or} \ \ \mu_1> (< \text{or} \neq) \ \mu_2$
+- $\text {df}=n_1+n_2-2$
+
+### Comparing 2 proportions
+
+$$
+\hat p_1- \hat p_2
+$$
+
+Sampling Distribution for $\hat p_1- \hat p_2$
+
+- center: $\mu_{\hat p_1- \hat p_2}=p_1- p_2$
+- shape: approximately normal if the following conditions are met
+    $$
+    n_1p_1\geq10 \ \text{and} \ n_1(1-p_1)\geq10 \\ n_2p_2\geq10 \ \text{and} \ n_2(1-p_2)\geq10
+    $$
+- spread: $\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}$
+- independent: no more than $10 \%$ of population for either $n_1 \ \text{or} \ n_2$
+
+**Confidence Interval**
+
+$$
+\text{CI} = (\hat p_1- \hat p_2)\pm z^* \times \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+$$
+
+**2 prop z-test**
+
+- $\mathcal{H}_0: p_1-p_2=0$
+- $\mathcal{H}_a: p_1-p_2 > (< \text{or} \neq) \ 0$
+
+$$
+z_{stats} = \frac{\hat p_1 - \hat p_2}{\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}}
+$$
+
+$$
+p_v=\text{normalcdf}(z_{stats})
+$$
+
+- compare $p_v$ to an $\alpha$
+
+## Nonparametric Inference Techniques
+
+Everything thus far with inference relies on explicit assumptions about population, distributions, and parameters
+
+- Today focus on how to work with categorical data
+- Chi-square methods are relatively free from assumptions
+
+### Chi-Square Distribution
+
+Given a normal distribution with a mean of $\mu$ and a variance of $\sigma^2$, we select a random $X$ from population.
+
+$$
+z^2=(\frac{\bar x - \mu}{\sigma})^2
+$$
+
+The distributions of $z^2$ values could be obtained.
+
+$$
+\chi^2_{(N)}=\sum_{i=1}^N z_i^2
+$$
+
+- $\mu = \text{df}$
+- $\sigma = \sqrt{2\cdot \text{df}}$
+- $\text{mode} = \text{df} - 2$
+
+```r
+pchisq("x^2value", df, lower.tail = F)
+```
+
+### Chi-Square Goodness of Fit Test
+
+**Statement**
+
+- $\mathcal{H}_0: \text{The percentage distributions is same as given}$
+- $\mathcal{H}_0: \text{value doesn't match}$
+
+Collect random sample of size $N$, how unlikely is it for the observed value to differ as much as they do from the expected values if $\mathcal{H}_0$ is true?
+
+**Conditions**
+
+- Cells must mutually exclusive and exhaustive
+- Observations need to be independent
+- Expected frequency value must be at least 5
+
+$$
+\chi_{(k-1)}^2 = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}
+$$
+
+- $\text{df} = k - 1 = \text{categories} - 1$
+
+$$
+p_v=\chi^2\text{cdf}(\text{lower}=\chi^2, \text{upper} = \infty / 10^{99}, \text{df})
+$$
+
+```r
+type = c(<categories...>)
+freq = c(<actual_values...>)
+prob = c(<expected_prop...>)
+chisq.test(freq, p = prob)
+```
+
+### The Chi-Square Test of Independence
+
+Enable us to determine whether two categorical variables are related
+
+**Statement**
+
+- $\mathcal{H_0}: \text{two variables are mutually independent}$
+- $\mathcal{H_a}: \text{two variables are not mutually independent}$
+
+**Conditions**
+
+Same as [Chi-Square Goodness of Fit Test](https://www.notion.so/Chi-Square-Goodness-of-Fit-Test-17acf6a2cc5c80419079f3dc7dc2c799?pvs=21)
+
+- Individual observations are independent of each other
+- $\min(E_{ij})\geq5$
+
+$$
+\chi_{(\text{c}-1)(\text{r}-1)}^2=\sum_{ij} \frac{(O_{ij}-E_{ij})^2}{E_{ij}}
+$$
+
+- $\text{df} = (\text{row}-1)\cdot(\text{column}-1)$
+- $E_{ij}=\text{(row total)} \cdot \text{(column total)} \div \text{(sample total)}$
+- $E_{ij} \ \text{is assuming that independence is true}$
+
+$$
+p_v=\chi^2\text{cdf}(\text{lower}=\chi^2, \text{upper} = \infty / 10^{99}, \text{df})
+$$
+
+### The Chi-Square Test for Homogeneity
+
+Determine whether different populations or groups have the same distribution of a categorical variable $\text{CV}$.
+
+**Statement**
+
+- $\mathcal{H}_0: \text{The distribution of the CV are the same across all groups}$
+- $\mathcal{H}_a: \text{The distribution of the CV are not the same across all groups}$
+
+**Conditions**
+
+Same as [Chi-Square Goodness of Fit Test](https://www.notion.so/Chi-Square-Goodness-of-Fit-Test-17acf6a2cc5c80419079f3dc7dc2c799?pvs=21)
+
+|                    | $\chi^2 \ \text{goodness of fit}$             | $\chi^2 \ \text{for homogeneity}$                             | $\chi^2 \ \text{for independence}$         |
+|--------------------|-----------------------------------------------|---------------------------------------------------------------|--------------------------------------------|
+| number of sample   | 1                                             | at least 2                                                    | 1                                          |
+| number of variable | 1                                             | 1                                                             | at least 2                                 |
+| $\mathcal{H}_0$    | The percentage distributions is same as given | The distribution of the CV are the same across all groups     | two variables are mutually independent     |
+| $\mathcal{H}_a$    | value doesn't match                           | The distribution of the CV are not the same across all groups | two variables are not mutually independent |
+| Expected Value     | $n\times p$                                   | $\dfrac{c\times r}{t}$                                        | $\dfrac{c\times r}{t}$                     |
+| Degree of Freedom  | $\text{categories} - 1$                       | $(\text{r}-1)\cdot(\text{c}-1)$                               | $(\text{r}-1)\cdot(\text{c}-1)$            |
+
+## Inferential Statistics for Linear Regression
+
+If data are a random sample from a larger population, we need statistical inference to answer following questions:
+
+- Is there a relationship between x and y in the population or could the pattern we see using the sample data happen by chance?
+- In the population, how much will the predicted value of y changes for every increase of 1 unit of x?
+- What is the marginal of error for the estimate?
+
+### Sampling Distribution of a Slope
+
+Choose a *Simple Random Sample* of $n$ observations $(x,y)$ from a population of size $N$
+
+$$
+\hat y = \alpha + \beta x
+$$
+
+- $\mu_b = \beta$
+- $\sigma_b = \dfrac{\sigma}{\sigma_x \sqrt n} \ \ \text{as long as} \ \ n \leq \dfrac1{10} N$
+- The distribution of y for each value of x follows a normal distribution
+
+**Conditions:**
+
+- Linear - look at the scatter plot and plot of the residual
+- Independent
+- Normal -  for any value of $(x,y)$, varies according to a normal distribution
+    - look at the residuals - box plot, hist, stem&leaf plot
+- Equal Standard Deviation - the standard deviation of y is the same for all values of x
+    - look at a scatterplot of residuals
+- Random - data from a well-designed experiment or random sample
+
+$$
+s = \sqrt{\frac{\sum(y_i - \hat y_i)^2}{n - 2}}
+$$
+
+$$
+\sigma_b = \dfrac{\sigma}{\sigma_x \sqrt n}
+$$
+
+$$
+\text{SE}_b = \frac{s}{s_x \sqrt n}
+$$
+
+### Confidence Interval
+
+$$
+b \pm t^* \times \text{SE}_b \ \ \text{where} \ \ \text{df} = 2
+$$
+
+### Significance Test
+
+**Hypothesis**
+
+- $\mathcal{H}_0: \Beta = \Beta_0$
+- $\mathcal{H}_a: \Beta > (< \text{or} \neq) \  \Beta_0$
+
+**Test Statistics**
+
+$$
+t_{stats} = \frac{b - \Beta_0}{\text{SE}_b}
+$$
+
+**Conclusion**
+
+If $\Beta_0 = 0$ determines if the value of y is impacted by the value of x
