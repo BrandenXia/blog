@@ -31,6 +31,8 @@ const h4: ElementLike<"h4"> = ({ children, ...props }) => (
     <Link href={`#${children}`}>{children}</Link>
   </h4>
 );
+const headingStyles = { h1, h2, h3, h4 };
+
 const p: ElementLike<"p"> = ({ children, ...props }) => (
   <p {...props} className="leading-7">
     {children}
@@ -72,18 +74,17 @@ const ol: ElementLike<"ol"> = ({ children, ...props }) => (
     {children}
   </ol>
 );
-
 const ul: ElementLike<"ul"> = ({ children, ...props }) => (
   <ul {...props} className="list-inside list-disc">
     {children}
   </ul>
 );
-
 const li: ElementLike<"li"> = ({ children, ...props }) => (
   <li {...props} className="leading-7 [&_li]:ml-5">
     {children}
   </li>
 );
+const listStyles = { ol, ul, li };
 
 const img: ElementLike<"img"> = ({ src, alt: metas, ...props }) => {
   const alt = metas?.replace(/ *\(.*\) */g, "");
@@ -97,20 +98,55 @@ const img: ElementLike<"img"> = ({ src, alt: metas, ...props }) => {
   );
 };
 
+const table: ElementLike<"table"> = ({ children, ...props }) => (
+  <table {...props} className="w-full border-collapse border border-neutral/10">
+    {children}
+  </table>
+);
+const thead: ElementLike<"thead"> = ({ children, ...props }) => (
+  <thead {...props} className="bg-neutral/10">
+    {children}
+  </thead>
+);
+const tbody: ElementLike<"tbody"> = ({ children, ...props }) => (
+  <tbody {...props} className="divide-y divide-neutral/10">
+    {children}
+  </tbody>
+);
+const tr: ElementLike<"tr"> = ({ children, ...props }) => (
+  <tr {...props} className="divide-x divide-neutral/10">
+    {children}
+  </tr>
+);
+const th: ElementLike<"th"> = ({ children, ...props }) => (
+  <th {...props} className="px-4 py-2 text-left font-medium">
+    {children}
+  </th>
+);
+const td: ElementLike<"td"> = ({ children, ...props }) => (
+  <td {...props} className="px-4 py-2">
+    {children}
+  </td>
+);
+const tableStyles = {
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td,
+};
+
 const MdxStyle = {
-  h1,
-  h2,
-  h3,
-  h4,
+  ...headingStyles,
   p,
   a,
   blockquote,
   code,
   pre,
-  ol,
-  ul,
-  li,
+  ...listStyles,
   img,
+  ...tableStyles,
 } as MDXComponents;
 
 export default MdxStyle;
