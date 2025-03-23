@@ -24,7 +24,7 @@ const DialogImg = ({ src, alt, className, style }: ComponentProps<"img">) => (
         <DialogImage
           src={src}
           alt={alt}
-          className="h-auto w-[90vw] rounded object-cover lg:h-[90vh] lg:w-auto"
+          className="h-auto w-[90vw] rounded-sm object-cover lg:h-[90vh] lg:w-auto"
         />
       </DialogContent>
       <DialogClose

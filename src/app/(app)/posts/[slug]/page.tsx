@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: Promise<Params> }) => {
 
   return (
     <>
-      <main className="mx-auto flex max-w-screen-lg grow flex-col space-y-8 px-12">
+      <main className="mx-auto flex max-w-(--breakpoint-lg) grow flex-col space-y-8 px-12">
         <div className="flex flex-col space-y-4">
           <h1 className="text-center text-4xl font-bold">{metadata.title}</h1>
           <div className="flex flex-wrap justify-center space-x-2.5 text-neutral">

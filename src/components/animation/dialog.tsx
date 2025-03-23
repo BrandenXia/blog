@@ -207,7 +207,7 @@ function DialogContainer({ children }: DialogContainerProps) {
         <>
           <m.span
             key={`backdrop-${uniqueId}`}
-            {...{ className: "fixed inset-0 z-50 block size-full bg-base-100/40 backdrop-blur-sm" }}
+            {...{ className: "fixed inset-0 z-50 block size-full bg-base-100/40 backdrop-blur-xs" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

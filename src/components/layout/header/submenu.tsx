@@ -16,7 +16,7 @@ const SubMenu = ({ links }: { links: NamedLink[] }) => (
         animate={{ opacity: 1, y: 0 }}
         {...{
           className:
-            "absolute top-[calc(100%+1.15rem)] z-20 w-max overflow-hidden rounded-lg bg-base-100 drop-shadow",
+            "absolute top-[calc(100%+1.15rem)] z-20 w-max overflow-hidden rounded-lg bg-base-100 drop-shadow-sm",
         }}
       >
         <AnimatedBackground className="bg-primary/20" enableHover>

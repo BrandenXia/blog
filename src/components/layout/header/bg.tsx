@@ -1,6 +1,6 @@
 "use client";
 
-import { m, mix } from "framer-motion";
+import { interpolate, m, mix } from "framer-motion";
 import { useAtomValue } from "jotai";
 
 import { scrollProgressAtom } from "./atom";
@@ -13,22 +13,23 @@ type CSSProperties = ComponentProps<typeof m.div>["animate"];
 const Bg: JSXWrapper = ({ children }) => {
   const scrollProgress = useAtomValue(scrollProgressAtom);
 
-  const bgMix = mix(0, 0.8, scrollProgress);
-  const borderOpacityMix = mix(0, 0.8, scrollProgress);
+  const bgOpacity = mix(0, 0.8, scrollProgress);
+  const borderOpacityMix = interpolate([0, 1], ["0%", "80%"]);
+  const borderOpacity = borderOpacityMix(scrollProgress);
 
   return (
     <m.div
       initial={false}
       animate={
         {
-          "--tw-bg-opacity": bgMix,
-          "--tw-border-opacity": borderOpacityMix,
+          "--tw-bg-opacity": bgOpacity,
+          "--tw-border-opacity": borderOpacity,
           willChange: "background-color, border-color",
         } as CSSProperties
       }
       {...{
         className:
-          "size-full transform-gpu border-b border-b-neutral-content bg-base-100 backdrop-blur-md backdrop-saturate-[180%] [backface-visibility:hidden] dark:border-b-0 dark:backdrop-saturate-100",
+          "size-full transform-gpu border-b border-b-neutral-content/(--tw-border-opacity) bg-base-100/(--tw-bg-opacity) backdrop-blur-md backdrop-saturate-[180%] [backface-visibility:hidden] dark:border-b-0 dark:backdrop-saturate-100",
       }}
     >
       {children}

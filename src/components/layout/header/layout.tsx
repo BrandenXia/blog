@@ -10,7 +10,7 @@ const Layout = ({
   right?: ReactNode;
 }) => (
   <div className="flex size-full transform-gpu items-center justify-center">
-    <div className="mx-4 flex max-w-screen-2xl grow md:mx-14">
+    <div className="mx-4 flex max-w-(--breakpoint-2xl) grow md:mx-14">
       <div className="grid w-full grid-cols-3 items-center justify-items-stretch">
         <div className="justify-self-start">{left}</div>
         <div className="flex flex-1 justify-self-center">{center}</div>

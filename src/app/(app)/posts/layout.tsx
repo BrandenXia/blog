@@ -4,7 +4,7 @@ import type { JSXWrapper } from "@/types/utils";
 
 const Layout: JSXWrapper = ({ children }) => (
   <FullPage>
-    <div className="mx-auto my-16 max-w-screen-2xl">{children}</div>
+    <div className="mx-auto my-16 max-w-(--breakpoint-2xl)">{children}</div>
   </FullPage>
 );
 

@@ -8,7 +8,7 @@ const HoverLink = (props: { children: ReactNode; href: string }) => (
 
 const Footer = () => (
   <footer className="mt-8 flex justify-center bg-base-300 py-8">
-    <div className="max-w-screen-lg grow">
+    <div className="max-w-(--breakpoint-lg) grow">
       <p className="divide-x divide-base-content/40 text-sm *:px-3">
         <span>@{new Date().getFullYear()} BrandenXia</span>
         <HoverLink href="/feed">RSS</HoverLink>

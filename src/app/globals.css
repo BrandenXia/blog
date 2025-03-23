@@ -1,13 +1,85 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui" {
+  exclude: properties, rootcolor, scrollbar, rootscrolllock, rootscrollgutter, svg;
+  themes:
+    light --default,
+    dark --prefersdark;
+  logs: false;
+}
+@plugin "@egoist/tailwindcss-icons";
 
-body {
-  overflow-y: scroll;
+@theme {
+  --list-style-type-upper-alpha: upper-alpha;
+  --list-style-type-lower-alpha: lower-alpha;
+  --list-style-type-upper-roman: upper-roman;
+  --list-style-type-lower-roman: lower-roman;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer utilities {
+  body {
+    overflow-y: scroll;
+  }
 }
 
 @layer base {
   :root {
     @apply bg-base-100 text-base-content;
   }
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98.46% 0.0017 247.84);
+  --color-base-300: oklch(97% 0.0029 264.54);
+  --color-primary: oklch(64.35% 0.1488 276.63);
+  --color-secondary: oklch(83.66% 0.1165 66.29);
+  --color-accent: oklch(71.37% 0.1434 254.62);
+  --color-neutral: oklch(39.79% 0 0);
+  --color-info: oklch(75.35% 0.139 232.66);
+  --color-success: oklch(77.29% 0.1535 163.22);
+  --color-warning: oklch(87.9% 0.1534 91.61);
+  --color-error: oklch(63.68% 0.2078 25.33);
+}
+
+@plugin "daisyui/theme" {
+  naem: "dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(26.81% 0.016 264.26);
+  --color-primary: oklch(71.13% 0.1146 174.44);
+  --color-secondary: oklch(58.85% 0.1739 26.05);
+  --color-accent: oklch(57.85% 0.171 256.14);
+  --color-neutral: oklch(90.01% 0.0017 247.84);
+  --color-info: oklch(39.36% 0.1475 259.6);
+  --color-success: oklch(58.07% 0.1663 146.25);
+  --color-warning: oklch(68.91% 0.1272 88.75);
+  --color-error: oklch(53.27% 0.1781 25.64);
 }

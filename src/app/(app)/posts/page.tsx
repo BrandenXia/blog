@@ -29,7 +29,7 @@ const Page = async (props: { searchParams: Promise<SearchParams> }) => {
   const posts = await getPostsBy({ filter, page: 1 });
 
   return (
-    <main className="mx-auto max-w-screen-md">
+    <main className="mx-auto max-w-(--breakpoint-md)">
       <PostList initialPosts={posts} filter={filter} />
     </main>
   );

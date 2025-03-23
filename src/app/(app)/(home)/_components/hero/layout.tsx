@@ -14,7 +14,7 @@ const Layout: JSXWrapper = ({ children }) => {
         style={{ marginTop: `-${headerHeight}px` }}
         className="relative flex h-screen justify-center overflow-hidden md:mx-16 lg:mx-28 xl:mx-48"
       >
-        <div className="flex size-full max-w-screen-lg flex-col-reverse items-center justify-center space-y-12 space-y-reverse md:flex-row md:justify-between md:space-y-0">
+        <div className="flex size-full max-w-(--breakpoint-lg) flex-col-reverse items-center justify-center space-y-12 space-y-reverse md:flex-row md:justify-between md:space-y-0">
           {children}
         </div>
         <div className="absolute bottom-4 flex flex-col items-center space-y-3.5">
