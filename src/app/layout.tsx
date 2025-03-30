@@ -24,7 +24,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 const Layout: JSXWrapper = ({ children }) => (
   <html lang="en">
-    <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+    <body
+      className={`${inter.variable} ${jetbrainsMono.variable} overscroll-none font-sans antialiased`}
+    >
       <Providers>{children}</Providers>
       <Analytics />
     </body>
