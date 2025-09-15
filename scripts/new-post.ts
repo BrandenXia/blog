@@ -49,7 +49,7 @@ const main = async () => {
   if (checkCancel(useFolder)) process.exit(0);
 
   const filename = `${title.toLowerCase().replaceAll(" ", "-")}.mdx`;
-  const filepath = path.resolve(posts, filename);
+  const filepath = useFolder ? path.join(posts, filename, "index.mdx") : path.join(posts, filename);
 
   const confirmed = await confirm({
     message: `Going to create post at: ${posts}, continue?`,
