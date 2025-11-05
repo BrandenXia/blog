@@ -4,14 +4,12 @@ import assert from "assert";
 import { type } from "arktype";
 import { cacheLife } from "next/cache";
 
+import { githubPostsRepo } from "@/config";
+
 import octokit from "./client";
 
 const HEADERS = {
   "X-GitHub-Api-Version": "2022-11-28",
-};
-const GITHUB_REPO = {
-  owner: "BrandenXia",
-  repo: "blog-posts",
 };
 const GET_ROUTE = "GET /repos/{owner}/{repo}/contents/{path}";
 
@@ -23,7 +21,7 @@ const getPostSource = async (title: string) => {
   cacheLife("days");
 
   const post = await octokit.request(GET_ROUTE, {
-    ...GITHUB_REPO,
+    ...githubPostsRepo,
     path: `${title}/index.mdx`,
     mediaType: { format: "application/vnd.github.raw+json" },
     headers: HEADERS,
@@ -39,7 +37,7 @@ const getAllPosts = async () => {
   cacheLife("minutes");
 
   const posts = await octokit.request(GET_ROUTE, {
-    ...GITHUB_REPO,
+    ...githubPostsRepo,
     path: "",
     headers: HEADERS,
   });

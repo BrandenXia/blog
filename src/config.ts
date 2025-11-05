@@ -9,3 +9,8 @@ export const metadata = {
   },
   description: "BrandenXia's Blog",
 };
+
+export const githubPostsRepo = {
+  owner,
+  repo: "blog-posts",
+};

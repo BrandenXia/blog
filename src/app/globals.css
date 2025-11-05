@@ -1,25 +1,44 @@
 @import "tailwindcss";
+@import "@catppuccin/palette/css/catppuccin.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: var(--ctp-latte-base);
+  --bg-100: var(--ctp-latte-surface0);
+  --bg-200: var(--ctp-latte-surface1);
+  --bg-300: var(--ctp-latte-surface2);
+  --fg: var(--ctp-latte-text);
+  --fg-100: var(--ctp-latte-subtext1);
+  --fg-200: var(--ctp-latte-subtext0);
+  --primary: var(--ctp-latte-mauve);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: var(--ctp-macchiato-base);
+    --bg-100: var(--ctp-macchiato-surface0);
+    --bg-200: var(--ctp-macchiato-surface1);
+    --bg-300: var(--ctp-macchiato-surface2);
+    --fg: var(--ctp-macchiato-text);
+    --fg-100: var(--ctp-macchiato-subtext1);
+    --fg-200: var(--ctp-macchiato-subtext0);
+    --primary: var(--ctp-macchiato-mauve);
   }
 }
 
 @theme inline {
-  --color-fg: var(--foreground);
-  --color-bg: var(--background);
+  --color-bg: var(--bg);
+  --color-bg-100: var(--bg-100);
+  --color-bg-200: var(--bg-200);
+  --color-bg-300: var(--bg-300);
+  --color-fg: var(--fg);
+  --color-fg-100: var(--fg-100);
+  --color-fg-200: var(--fg-200);
+  --color-primary: var(--primary);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--fg);
 }

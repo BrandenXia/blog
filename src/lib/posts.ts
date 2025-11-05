@@ -78,4 +78,4 @@ const getPosts = async ({
 };
 
 export type { Metadata, Post, Filter, GetPostsOpts };
-export { getPostMeta, getPosts };
+export { getPostMeta, getPosts, getPostSource };
