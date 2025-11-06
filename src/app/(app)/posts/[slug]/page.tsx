@@ -56,7 +56,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   return (
     <>
-      <main className="mx-auto flex max-w-(--breakpoint-lg) grow flex-col space-y-8 px-12 xl:pr-8 xl:pl-0">
+      <main className="mx-auto flex max-w-(--breakpoint-md) grow flex-col space-y-8 px-12 xl:mx-10 xl:pr-8 xl:pl-0">
         <div>
           <h1 className="text-4xl font-bold">{meta.title}</h1>
         </div>

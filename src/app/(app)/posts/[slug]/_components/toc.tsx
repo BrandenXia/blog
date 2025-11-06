@@ -42,11 +42,9 @@ const Toc: FC<{ toc: TocItem[] }> = ({ toc }) => {
   }, []);
 
   return (
-    <aside>
-      {filteredToc.length >= 0 && (
-        <h3 className="text-[15px] font-semibold uppercase">On this page</h3>
-      )}
-      <ul className="text-fg-200 mt-2 text-[14px]">
+    <aside className="text-[14px]">
+      {filteredToc.length >= 0 && <h3 className="font-semibold uppercase">On this page</h3>}
+      <ul className="text-fg-200 mt-2">
         {filteredToc.map((item) => (
           <li
             key={item.href}
