@@ -1,6 +1,7 @@
 "use cache";
 
 import { evaluate } from "next-mdx-remote-client/rsc";
+import Link from "next/link";
 import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -14,13 +15,24 @@ import { getPostMeta, getPostSource } from "@/lib/posts";
 import MdxStyles from "./_components/mdx";
 import Toc from "./_components/toc";
 
+import type { Metadata } from "next";
 import type { MDXRemoteOptions } from "next-mdx-remote-client/rsc";
 import type { Options as RehypePrettyCodeOptions } from "rehype-pretty-code";
 import type { TocItem } from "remark-flexible-toc";
 
 import "./style.css";
 
-import Link from "next/link";
+type Params = Promise<{ slug: string }>;
+
+export const generateMetadata = async ({ params }: { params: Params }): Promise<Metadata> => {
+  const { slug } = await params;
+  const title = decodeURIComponent(slug);
+
+  return {
+    title,
+    description: title,
+  };
+};
 
 type Frontmatter = Record<string, unknown>;
 type Scope = {
@@ -63,7 +75,7 @@ const Tags = ({ tags }: { tags: string[] }) => (
   </div>
 );
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+const Page = async ({ params }: { params: Params }) => {
   const { slug } = await params;
   const title = decodeURIComponent(slug);
   const meta = await getPostMeta(title);
