@@ -28,7 +28,7 @@ const code: ElementLike<"code"> = (props) => (
       // inline code styles
       "not-data-[theme*='_']:bg-bg-100 not-data-[theme*='_']:rounded-xl not-data-[theme*='_']:px-1.5",
       // block code styles
-      "data-[theme*='_']:mx-4 data-[theme*='_']:overflow-x-auto data-[theme*='_']:py-3",
+      "data-[theme*='_']:mx-4 data-[theme*='_']:overflow-x-auto data-[theme*='_']:py-3 data-[theme*='_']:[scrollbar-width:none]",
     )}
   />
 );
