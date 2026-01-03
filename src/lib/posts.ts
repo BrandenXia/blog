@@ -77,5 +77,16 @@ const getPosts = async ({
     .slice(limit === "all" ? 0 : (page - 1) * limit, limit === "all" ? undefined : page * limit);
 };
 
+const getAllTags = async () => {
+  const posts = await getPosts({ limit: "all" });
+  const tagMap: Record<string, number> = {};
+  posts
+    .flatMap((post) => post.tags)
+    .forEach((tag) => {
+      tagMap[tag] = (tagMap[tag] || 0) + 1;
+    });
+  return tagMap;
+};
+
 export type { Metadata, Post, Filter, GetPostsOpts };
-export { getPostMeta, getPosts, getPostSource };
+export { getPostMeta, getPosts, getPostSource, getAllTags };

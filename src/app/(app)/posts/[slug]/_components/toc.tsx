@@ -49,7 +49,7 @@ const Toc: FC<{ toc: TocItem[] }> = ({ toc }) => {
           <li
             key={item.href}
             className={cn(
-              "before:bg-bg-100 relative ml-2 py-1 pl-1.5 before:absolute before:top-0 before:-left-2 before:h-full before:w-[1px]",
+              "before:bg-bg-100 relative ml-2 py-1 pl-1.5 before:absolute before:top-0 before:-left-2 before:h-full before:w-px",
               {
                 "text-primary before:bg-primary font-medium": item.href === active,
                 "hover:before:bg-bg-300 hover:text-fg": item.href !== active,

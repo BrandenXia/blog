@@ -35,3 +35,7 @@ export const avatar: Avatar = {
   userId: 63844776,
   alt: "BrandenXia avatar",
 };
+
+export const externalLinks = {
+  github: "https://github.com/BrandenXia",
+};

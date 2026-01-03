@@ -46,6 +46,7 @@ const options: MDXRemoteOptions = {
     rehypePlugins: [
       rehypeSlug,
       rehypeKatex,
+      // TODO: move to shiki and use external script that generate LSP data for source code
       [
         rehypePrettyCode,
         {
@@ -95,7 +96,7 @@ const Page = async ({ params }: { params: Params }) => {
             <Tags tags={meta.tags} />
           </div>
         </div>
-        <article className="mx-0.5 text-[1.025rem] text-pretty">{content}</article>
+        <article className="mx-0.5 text-[1.025rem] leading-7 text-pretty">{content}</article>
       </main>
       <div className="relative hidden xl:block">
         <div className="sticky top-0 h-screen shrink-0 pt-28">

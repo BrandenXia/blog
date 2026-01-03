@@ -39,8 +39,20 @@
   --color-fg-200: var(--fg-200);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-monaspace);
+  --font-mono: var(--font-maple-mono);
+}
+
+@utility mask {
+  display: inline-block;
+  vertical-align: middle;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+@utility mask-squircle {
+  mask-image: url("/mask-squircle.svg");
 }
 
 body {

@@ -1,20 +1,30 @@
-"use cache";
-
-import Link from "next/link";
-
 import { getPosts } from "@/lib/posts";
 
-const Page = async () => {
-  const posts = await getPosts();
+import Posts from "./_components/posts";
+
+import type { Filter } from "@/lib/posts";
+import type { FC } from "react";
+
+type SearchParams = Promise<{ tags?: string }>;
+
+const parseFilter = (params: Awaited<SearchParams>): Filter => {
+  return {
+    tags: params.tags ? params.tags.split(",") : undefined,
+  };
+};
+
+const Page: FC<{ searchParams: SearchParams }> = async ({ searchParams }) => {
+  const params = await searchParams;
+  const posts = await getPosts({
+    filter: parseFilter(params),
+  });
 
   return (
-    <>
-      {posts.map((p) => (
-        <Link key={p.title} href={`/posts/${encodeURIComponent(p.title)}`}>
-          {p.title}
-        </Link>
-      ))}
-    </>
+    <div>
+      <div className="mx-auto max-w-(--breakpoint-md)">
+        <Posts posts={posts} />
+      </div>
+    </div>
   );
 };
 
