@@ -15,9 +15,8 @@ const parseFilter = (params: Awaited<SearchParams>): Filter => {
 
 const Page: FC<{ searchParams: SearchParams }> = async ({ searchParams }) => {
   const params = await searchParams;
-  const posts = await getPosts({
-    filter: parseFilter(params),
-  });
+  const filter = parseFilter(params);
+  const posts = await getPosts({ filter });
 
   return (
     <div>
