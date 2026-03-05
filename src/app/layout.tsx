@@ -1,9 +1,12 @@
 import localFont from "next/font/local";
 
-import "./globals.css";
-
 import Providers from "@/components/providers";
 import Header from "@/components/ui/header";
+import { metadata as _metadata } from "@/config";
+
+import "./globals.css";
+
+import type { Metadata } from "next";
 
 const sans = localFont({
   src: "../assets/font/monaspace/neon.woff2",
@@ -45,7 +48,7 @@ const mono = localFont({
   variable: "--font-maple-mono",
 });
 
-export { metadata as Metadata } from "@/config";
+export const metadata: Metadata = _metadata;
 
 const Layout = ({
   children,

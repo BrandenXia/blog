@@ -1,5 +1,3 @@
-"use cache";
-
 import * as runtime from "react/jsx-runtime";
 import RSS from "rss";
 
@@ -8,7 +6,7 @@ import { getPostSource } from "@/lib/github/posts";
 import { getPosts } from "@/lib/posts";
 import { evaluate } from "@mdx-js/mdx";
 
-const GET = async () => {
+export const GET = async () => {
   const { renderToString } = await import("react-dom/server");
 
   const metas = await getPosts({ limit: "all" });
@@ -41,5 +39,3 @@ const GET = async () => {
     headers: { "Content-Type": "application/xml" },
   });
 };
-
-export { GET };

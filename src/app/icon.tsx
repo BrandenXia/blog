@@ -10,7 +10,6 @@ const link = getAvatarLink(avatar);
 
 const OwnerAvatar = () =>
   // Next.js Image component is not supported in Open Graph images
-
   new ImageResponse(<img tw="rounded-full" src={link} alt={avatar.alt} />, { ...size });
 
 export { size, contentType };
